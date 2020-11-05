@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>DESAFIO 001</title>
+</head>
+
+<body>
+    <div class="container p-3 my-3 bg-dark text-white">
+        <header>
+            <h1>
+                Desafio 001
+            </h1>
+        </header>
+    </div>
+    <main>
+        <section>
+            <div class="container p-3 my-3 bg-dark text-white">
+                <fieldset>
+                    <div style="color: rgb(255, 255, 255);">
+                        <legend>
+                            Sorteio Da loteria
+                        </legend>
+                    </div>
+                    <div class="container">
+
+                        <div class="toast" data-autohide="false">
+                            <div class="toast-header">
+                                <strong class="mr-auto text-dark">Você Adicionou um Número</strong>
+                                <small class="text-dark">5 seg</small>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="idSNum">Seus Números</label>
+                    <input type="number" name="nmSNum" id="idSNum">
+                    <br>
+                    <label for="idNumS">Números Sorteados</label>
+                    <output id="idNumS" name="nmNumS">:</output>
+
+                    <div class="container">
+                        <input type="submit" onclick="executar()" value="Pegar Números">
+                        <input type="submit" onclick="sortear()" value="Sortear Números">
+                    </div>
+
+
+                </fieldset>
+            </div>
+        </section>
+    </main>
+   <script>
+
+        var sorteio = [];
+        var sNum = [];
+
+        function executar() {
+            $(document).ready(function () {
+                $('.toast').toast('show');
+            });
+
+            sNum.push(Number(document.getElementById("idSNum").value));
+            console.log(sNum.toString());
+        }
+
+        function sortear() {
+           
+            let contador = 0
+            let entrou = true
+            let jogadas = true
+
+            while (sorteio.length < 6) {
+                var aleatorio = Math.floor((Math.random() * 60) + 1)
+                if (sorteio.indexOf(aleatorio) == -1) {
+                    sorteio.push(aleatorio)
+                }
+            }
+
+            while (jogadas == true) {
+                while (entrou == true) {
+                    for (let index = 0; index < sorteio.length; index++) {
+                        sorteio[index] = Math.floor((Math.random() * 60) + 1)
+                    }
+                    entrou = false
+                }
+
+                if (sorteio[1] != sorteio[2] && sorteio[1] != sorteio[3] && sorteio[1] != sorteio[4] && sorteio[1] != sorteio[5] && sorteio[1] != sorteio[6]) {
+                    if (sorteio[2] != sorteio[3] && sorteio[2] != sorteio[4] && sorteio[2] != sorteio[5] && sorteio[2] != sorteio[6]) {
+                        if (sorteio[3] != sorteio[4] && sorteio[3] != sorteio[5] && sorteio[3] != sorteio[6]) {
+                            if (sorteio[4] != sorteio[5] && sorteio[4] != sorteio[6]) {
+                                if (sorteio[5] != sorteio[6]) {
+                                    contador += 1
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //Exibindo os numeros sorteados
+                //console.log(sorteio.join("-"));
+
+                if (sNum[1] == sorteio[1] || sNum[2] == sorteio[1] || sNum[3] == sorteio[1] || sNum[4] == sorteio[1] || sNum[5] == sorteio[1] || sNum[6] == sorteio[1] || sNum[7] == sorteio[1] || sNum[8] == sorteio[1] || sNum[9] == sorteio[1] || sNum[10] == sorteio[1]) {
+                    if (sNum[1] == sorteio[2] || sNum[2] == sorteio[2] || sNum[3] == sorteio[2] || sNum[4] == sorteio[2] || sNum[5] == sorteio[2] || sNum[6] == sorteio[2] || sNum[7] == sorteio[2] || sNum[8] == sorteio[2] || sNum[9] == sorteio[2] || sNum[10] == sorteio[2]) {
+                        if (sNum[1] == sorteio[3] || sNum[2] == sorteio[3] || sNum[3] == sorteio[3] || sNum[4] == sorteio[3] || sNum[5] == sorteio[3] || [6] == sorteio[3] || sNum[7] == sorteio[3] || sNum[8] == sorteio[3] || sNum[9] == sorteio[3] || sNum[10] == sorteio[3]) {
+                            if (sNum[1] == sorteio[4] || sNum[2] == sorteio[4] || sNum[3] == sorteio[4] || sNum[4] == sorteio[4] || sNum[5] == sorteio[4] || sNum[6] == sorteio[4] || sNum[7] == sorteio[4] || sNum[8] == sorteio[4] || sNum[9] == sorteio[4] || sNum[10] == sorteio[4]) {
+                                if (sNum[1] == sorteio[5] || sNum[2] == sorteio[5] || sNum[3] == sorteio[5] || sNum[4] == sorteio[5] || sNum[5] == sorteio[5] || sNum[6] == sorteio[5] || sNum[7] == sorteio[5] || sNum[8] == sorteio[5] || sNum[9] == sorteio[5] || sNum[10] == sorteio[5]) {
+                                    if (sNum[1] == sorteio[6] || sNum[2] == sorteio[6] || sNum[3] == sorteio[6] || sNum[4] == sorteio[6] || sNum[5] == sorteio[6] || sNum[6] == sorteio[6] || sNum[7] == sorteio[6] || sNum[8] == sorteio[6] || sNum[9] == sorteio[6] || sNum[10] == sorteio[6]) {
+                                        jogadas = false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                entrou = true
+            }
+
+           
+
+            if (contador == 1) {
+                console.log("Parabéns tu é brabo!");
+                document.getElementById("idNumS").hidden = false
+                document.getElementById("idNumS").value = `Parabéns, você ganhou com ${contador}!`
+            }
+            console.log(`Foram ${contador} tentativas até acertar o sorteio...`);
+
+            document.getElementById("idNumS").hidden = false
+            document.getElementById("idNumS").value = `Você ganhou com ${contador} tentativas. Mais sorte da próxima vez...`
+
+            
+        }
+
+   
+    </script>
+</body>
+
+</html>
