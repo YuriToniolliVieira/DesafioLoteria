@@ -1,2 +1,2 @@
-# Calculadora-JS
-Calculadora em JavaScript
+# DesafioLoteria
+Desafio da Loteria em JavaScript
